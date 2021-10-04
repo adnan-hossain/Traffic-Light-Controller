@@ -1,0 +1,302 @@
+Analysis & Synthesis report for TLC_v3
+Tue Nov 10 18:46:28 2020
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. User-Specified and Inferred Latches
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                           ;
++-----------------------------+------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Tue Nov 10 18:46:28 2020    ;
+; Quartus II Version          ; 9.0 Build 132 02/25/2009 SJ Full Version ;
+; Revision Name               ; TLC_v3                                   ;
+; Top-level Entity Name       ; TLC_v3                                   ;
+; Family                      ; FLEX10K                                  ;
+; Total logic elements        ; 229                                      ;
+; Total pins                  ; 50                                       ;
+; Total memory bits           ; 0                                        ;
++-----------------------------+------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                 ;
++----------------------------------------------------------------+--------------+---------------+
+; Option                                                         ; Setting      ; Default Value ;
++----------------------------------------------------------------+--------------+---------------+
+; Top-level entity name                                          ; TLC_v3       ; TLC_v3        ;
+; Family name                                                    ; FLEX10K      ; Stratix II    ;
+; Type of Retiming Performed During Resynthesis                  ; Full         ;               ;
+; Resynthesis Optimization Effort                                ; Normal       ;               ;
+; Physical Synthesis Level for Resynthesis                       ; Normal       ;               ;
+; Use Generated Physical Constraints File                        ; On           ;               ;
+; Use smart compilation                                          ; Off          ; Off           ;
+; Create Debugging Nodes for IP Cores                            ; Off          ; Off           ;
+; Preserve fewer node names                                      ; On           ; On            ;
+; Disable OpenCore Plus hardware evaluation                      ; Off          ; Off           ;
+; Verilog Version                                                ; Verilog_2001 ; Verilog_2001  ;
+; VHDL Version                                                   ; VHDL93       ; VHDL93        ;
+; State Machine Processing                                       ; Auto         ; Auto          ;
+; Safe State Machine                                             ; Off          ; Off           ;
+; Extract Verilog State Machines                                 ; On           ; On            ;
+; Extract VHDL State Machines                                    ; On           ; On            ;
+; Ignore Verilog initial constructs                              ; Off          ; Off           ;
+; Iteration limit for constant Verilog loops                     ; 5000         ; 5000          ;
+; Iteration limit for non-constant Verilog loops                 ; 250          ; 250           ;
+; Add Pass-Through Logic to Inferred RAMs                        ; On           ; On            ;
+; Parallel Synthesis                                             ; Off          ; Off           ;
+; NOT Gate Push-Back                                             ; On           ; On            ;
+; Power-Up Don't Care                                            ; On           ; On            ;
+; Remove Redundant Logic Cells                                   ; Off          ; Off           ;
+; Remove Duplicate Registers                                     ; On           ; On            ;
+; Ignore CARRY Buffers                                           ; Off          ; Off           ;
+; Ignore CASCADE Buffers                                         ; Off          ; Off           ;
+; Ignore GLOBAL Buffers                                          ; Off          ; Off           ;
+; Ignore ROW GLOBAL Buffers                                      ; Off          ; Off           ;
+; Ignore LCELL Buffers                                           ; Off          ; Off           ;
+; Ignore SOFT Buffers                                            ; On           ; On            ;
+; Limit AHDL Integers to 32 Bits                                 ; Off          ; Off           ;
+; Auto Implement in ROM                                          ; Off          ; Off           ;
+; Optimization Technique                                         ; Area         ; Area          ;
+; Carry Chain Length                                             ; 32           ; 32            ;
+; Cascade Chain Length                                           ; 2            ; 2             ;
+; Auto Carry Chains                                              ; On           ; On            ;
+; Auto Open-Drain Pins                                           ; On           ; On            ;
+; Auto ROM Replacement                                           ; On           ; On            ;
+; Auto RAM Replacement                                           ; On           ; On            ;
+; Auto Clock Enable Replacement                                  ; On           ; On            ;
+; Strict RAM Replacement                                         ; Off          ; Off           ;
+; Auto Resource Sharing                                          ; Off          ; Off           ;
+; Allow Any RAM Size For Recognition                             ; Off          ; Off           ;
+; Allow Any ROM Size For Recognition                             ; Off          ; Off           ;
+; Use LogicLock Constraints during Resource Balancing            ; On           ; On            ;
+; Ignore translate_off and synthesis_off directives              ; Off          ; Off           ;
+; Show Parameter Settings Tables in Synthesis Report             ; On           ; On            ;
+; HDL message level                                              ; Level2       ; Level2        ;
+; Suppress Register Optimization Related Messages                ; Off          ; Off           ;
+; Number of Removed Registers Reported in Synthesis Report       ; 100          ; 100           ;
+; Number of Inverted Registers Reported in Synthesis Report      ; 100          ; 100           ;
+; Block Design Naming                                            ; Auto         ; Auto          ;
+; Synthesis Effort                                               ; Auto         ; Auto          ;
+; Allows Asynchronous Clear Usage For Shift Register Replacement ; On           ; On            ;
+; Analysis & Synthesis Message Level                             ; Medium       ; Medium        ;
++----------------------------------------------------------------+--------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                     ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+
+; TLC_v3.v                         ; yes             ; User Verilog HDL File  ; D:/Buet/3-2/EEE 304/Project/Code/TLC V3/TLC_v3.v ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+
+
+
++------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary    ;
++--------------------------------+---------------+
+; Resource                       ; Usage         ;
++--------------------------------+---------------+
+; Total logic elements           ; 229           ;
+; Total combinational functions  ; 224           ;
+;     -- Total 4-input functions ; 141           ;
+;     -- Total 3-input functions ; 58            ;
+;     -- Total 2-input functions ; 25            ;
+;     -- Total 1-input functions ; 0             ;
+;     -- Total 0-input functions ; 0             ;
+; Total registers                ; 5             ;
+; I/O pins                       ; 50            ;
+; Maximum fan-out node           ; state[0]~reg0 ;
+; Maximum fan-out                ; 56            ;
+; Total fan-out                  ; 829           ;
+; Average fan-out                ; 2.97          ;
++--------------------------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                    ;
++----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; Memory Bits ; Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+; |TLC_v3                    ; 229 (229)   ; 5            ; 0           ; 50   ; 224 (224)    ; 5 (5)             ; 0 (0)            ; 0 (0)           ; 0 (0)      ; |TLC_v3             ; work         ;
++----------------------------+-------------+--------------+-------------+------+--------------+-------------------+------------------+-----------------+------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; ID[0]$latch                                         ; WideOr0             ; yes                    ;
+; ID[1]$latch                                         ; WideOr0             ; yes                    ;
+; ID[2]$latch                                         ; WideOr0             ; yes                    ;
+; ID[3]$latch                                         ; WideOr0             ; yes                    ;
+; ID[4]$latch                                         ; WideOr0             ; yes                    ;
+; ID[5]$latch                                         ; WideOr0             ; yes                    ;
+; ID[6]$latch                                         ; WideOr0             ; yes                    ;
+; ID[7]$latch                                         ; WideOr0             ; yes                    ;
+; ID[8]$latch                                         ; WideOr0             ; yes                    ;
+; ID[9]$latch                                         ; WideOr0             ; yes                    ;
+; ID[10]$latch                                        ; WideOr0             ; yes                    ;
+; ID[11]$latch                                        ; WideOr0             ; yes                    ;
+; camera$latch                                        ; camera~8            ; yes                    ;
+; next_state[0]$latch                                 ; Mux1                ; yes                    ;
+; next_state[1]$latch                                 ; Mux1                ; yes                    ;
+; next_state[2]$latch                                 ; Mux1                ; yes                    ;
+; next_state[3]$latch                                 ; Mux1                ; yes                    ;
+; next_state[4]$latch                                 ; Mux1                ; yes                    ;
+; maxoutput[0]$latch                                  ; maxoutput[2]~0      ; yes                    ;
+; maxoutput[1]$latch                                  ; maxoutput[2]~0      ; yes                    ;
+; maxoutput[2]$latch                                  ; maxoutput[2]~0      ; yes                    ;
+; Number of user-specified and inferred latches = 21  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; state[5]~reg0                         ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 5     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Tue Nov 10 18:46:27 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TLC_v3 -c TLC_v3
+Info: Found 1 design units, including 1 entities, in source file TLC_v3.v
+    Info: Found entity 1: TLC_v3
+Info: Elaborating entity "TLC_v3" for the top level hierarchy
+Warning (10270): Verilog HDL Case Statement warning at TLC_v3.v(54): incomplete case statement has no default case item
+Warning (10240): Verilog HDL Always Construct warning at TLC_v3.v(52): inferring latch(es) for variable "ID", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at TLC_v3.v(140): inferring latch(es) for variable "next_state", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at TLC_v3.v(140): inferring latch(es) for variable "camera", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at TLC_v3.v(140): inferring latch(es) for variable "maxoutput", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "maxoutput[0]" at TLC_v3.v(147)
+Info (10041): Inferred latch for "maxoutput[1]" at TLC_v3.v(147)
+Info (10041): Inferred latch for "maxoutput[2]" at TLC_v3.v(147)
+Info (10041): Inferred latch for "camera" at TLC_v3.v(147)
+Info (10041): Inferred latch for "next_state[0]" at TLC_v3.v(147)
+Info (10041): Inferred latch for "next_state[1]" at TLC_v3.v(147)
+Info (10041): Inferred latch for "next_state[2]" at TLC_v3.v(147)
+Info (10041): Inferred latch for "next_state[3]" at TLC_v3.v(147)
+Info (10041): Inferred latch for "next_state[4]" at TLC_v3.v(147)
+Info (10041): Inferred latch for "next_state[5]" at TLC_v3.v(147)
+Info (10041): Inferred latch for "ID[0]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[1]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[2]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[3]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[4]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[5]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[6]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[7]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[8]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[9]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[10]" at TLC_v3.v(52)
+Info (10041): Inferred latch for "ID[11]" at TLC_v3.v(52)
+Warning: Latch ID[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[4]~reg0
+Warning: Latch ID[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[0]~reg0
+Warning: Latch ID[2]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[1]~reg0
+Warning: Latch ID[3]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[3]~reg0
+Warning: Latch ID[4]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[0]~reg0
+Warning: Latch ID[5]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[4]~reg0
+Warning: Latch ID[6]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[3]~reg0
+Warning: Latch ID[7]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[0]~reg0
+Warning: Latch ID[8]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[3]~reg0
+Warning: Latch ID[9]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[4]~reg0
+Warning: Latch ID[10]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[0]~reg0
+Warning: Latch ID[11]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[4]~reg0
+Warning: Latch camera$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[3]~reg0
+Warning: Latch next_state[0]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[4]~reg0
+Warning: Latch next_state[1]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[4]~reg0
+Warning: Latch next_state[2]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[4]~reg0
+Warning: Latch next_state[3]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[4]~reg0
+Warning: Latch next_state[4]$latch has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal state[4]~reg0
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "state[5]" is stuck at GND
+    Warning (13410): Pin "next_state[5]" is stuck at GND
+Info: Implemented 279 device resources after synthesis - the final resource count might be different
+    Info: Implemented 22 input pins
+    Info: Implemented 28 output pins
+    Info: Implemented 229 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 44 warnings
+    Info: Peak virtual memory: 227 megabytes
+    Info: Processing ended: Tue Nov 10 18:46:29 2020
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

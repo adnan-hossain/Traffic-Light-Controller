@@ -1,0 +1,1077 @@
+Classic Timing Analyzer report for TLC_v3
+Tue Nov 10 18:46:35 2020
+Quartus II Version 9.0 Build 132 02/25/2009 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clock'
+  7. Clock Hold: 'clock'
+  8. tsu
+  9. tco
+ 10. th
+ 11. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                       ;
++------------------------------+------------------------------------------+---------------+----------------------------------+---------------------+---------------------+------------+----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From                ; To                  ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+---------------------+---------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 29.100 ns                        ; a3                  ; next_state[2]$latch ; --         ; clock    ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 32.500 ns                        ; next_state[3]$latch ; next_state[3]       ; ss2        ; --       ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 15.000 ns                        ; d1                  ; next_state[0]$latch ; --         ; ss2      ; 0            ;
+; Clock Setup: 'clock'         ; N/A                                      ; None          ; 40.32 MHz ( period = 24.800 ns ) ; next_state[4]$latch ; state[4]~reg0       ; clock      ; clock    ; 0            ;
+; Clock Hold: 'clock'          ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; state[4]~reg0       ; next_state[4]$latch ; clock      ; clock    ; 88           ;
+; Total number of failed paths ;                                          ;               ;                                  ;                     ;                     ;            ;          ; 88           ;
++------------------------------+------------------------------------------+---------------+----------------------------------+---------------------+---------------------+------------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                           ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                              ; Setting            ; From ; To ; Entity Name ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                         ; EPF10K10TC144-3    ;      ;    ;             ;
+; Timing Models                                                       ; Final              ;      ;    ;             ;
+; Default hold multicycle                                             ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                           ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                              ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                      ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                    ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                               ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                             ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                    ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                       ; Off                ;      ;    ;             ;
+; Number of source nodes to report per destination node               ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                               ; 10                 ;      ;    ;             ;
+; Number of paths to report                                           ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                        ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                              ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                          ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                        ; Off                ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis      ; Off                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                          ; Near End           ;      ;    ;             ;
++---------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clock           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; ss3             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; ss2             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; ss4             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; a2              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; c3              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; a1              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; d3              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; b3              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; c2              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; c1              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; ss1             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; a3              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; b2              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; b1              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; d1              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; d2              ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
+; clear           ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     1 processor            ; 100.0%      ;
+;     2-4 processors         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clock'                                                                                                                                                                             ;
++-------+----------------------------------+---------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack ; Actual fmax (period)             ; From                ; To                  ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-------+----------------------------------+---------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A   ; 40.32 MHz ( period = 24.800 ns ) ; next_state[3]$latch ; state[3]~reg0       ; clock      ; clock    ; None                        ; None                      ; 1.500 ns                ;
+; N/A   ; 40.32 MHz ( period = 24.800 ns ) ; next_state[4]$latch ; state[4]~reg0       ; clock      ; clock    ; None                        ; None                      ; 1.500 ns                ;
+; N/A   ; 40.82 MHz ( period = 24.500 ns ) ; next_state[0]$latch ; state[0]~reg0       ; clock      ; clock    ; None                        ; None                      ; 1.500 ns                ;
+; N/A   ; 41.15 MHz ( period = 24.300 ns ) ; next_state[2]$latch ; state[2]~reg0       ; clock      ; clock    ; None                        ; None                      ; 1.500 ns                ;
+; N/A   ; 41.32 MHz ( period = 24.200 ns ) ; next_state[1]$latch ; state[1]~reg0       ; clock      ; clock    ; None                        ; None                      ; 1.500 ns                ;
+; N/A   ; 62.89 MHz ( period = 15.900 ns ) ; state[0]~reg0       ; next_state[2]$latch ; clock      ; clock    ; None                        ; None                      ; 21.200 ns               ;
+; N/A   ; 63.29 MHz ( period = 15.800 ns ) ; state[0]~reg0       ; next_state[1]$latch ; clock      ; clock    ; None                        ; None                      ; 21.000 ns               ;
+; N/A   ; 64.94 MHz ( period = 15.400 ns ) ; state[0]~reg0       ; camera$latch        ; clock      ; clock    ; None                        ; None                      ; 17.800 ns               ;
+; N/A   ; 68.49 MHz ( period = 14.600 ns ) ; state[2]~reg0       ; next_state[2]$latch ; clock      ; clock    ; None                        ; None                      ; 19.900 ns               ;
+; N/A   ; 68.97 MHz ( period = 14.500 ns ) ; state[2]~reg0       ; next_state[1]$latch ; clock      ; clock    ; None                        ; None                      ; 19.700 ns               ;
+; N/A   ; 69.93 MHz ( period = 14.300 ns ) ; state[0]~reg0       ; next_state[0]$latch ; clock      ; clock    ; None                        ; None                      ; 19.800 ns               ;
+; N/A   ; 69.93 MHz ( period = 14.300 ns ) ; state[2]~reg0       ; camera$latch        ; clock      ; clock    ; None                        ; None                      ; 16.700 ns               ;
+; N/A   ; 70.42 MHz ( period = 14.200 ns ) ; state[1]~reg0       ; camera$latch        ; clock      ; clock    ; None                        ; None                      ; 16.600 ns               ;
+; N/A   ; 74.07 MHz ( period = 13.500 ns ) ; state[1]~reg0       ; next_state[2]$latch ; clock      ; clock    ; None                        ; None                      ; 18.800 ns               ;
+; N/A   ; 74.63 MHz ( period = 13.400 ns ) ; state[0]~reg0       ; next_state[3]$latch ; clock      ; clock    ; None                        ; None                      ; 19.200 ns               ;
+; N/A   ; 76.92 MHz ( period = 13.000 ns ) ; state[2]~reg0       ; next_state[0]$latch ; clock      ; clock    ; None                        ; None                      ; 18.500 ns               ;
+; N/A   ; 80.00 MHz ( period = 12.500 ns ) ; state[0]~reg0       ; next_state[4]$latch ; clock      ; clock    ; None                        ; None                      ; 18.300 ns               ;
+; N/A   ; 82.64 MHz ( period = 12.100 ns ) ; state[4]~reg0       ; camera$latch        ; clock      ; clock    ; None                        ; None                      ; 14.500 ns               ;
+; N/A   ; 84.75 MHz ( period = 11.800 ns ) ; state[1]~reg0       ; next_state[3]$latch ; clock      ; clock    ; None                        ; None                      ; 17.600 ns               ;
+; N/A   ; 86.21 MHz ( period = 11.600 ns ) ; state[3]~reg0       ; next_state[3]$latch ; clock      ; clock    ; None                        ; None                      ; 17.400 ns               ;
+; N/A   ; 95.24 MHz ( period = 10.500 ns ) ; state[1]~reg0       ; next_state[4]$latch ; clock      ; clock    ; None                        ; None                      ; 16.300 ns               ;
+; N/A   ; 96.15 MHz ( period = 10.400 ns ) ; state[1]~reg0       ; next_state[1]$latch ; clock      ; clock    ; None                        ; None                      ; 15.600 ns               ;
+; N/A   ; 99.01 MHz ( period = 10.100 ns ) ; state[1]~reg0       ; next_state[0]$latch ; clock      ; clock    ; None                        ; None                      ; 15.600 ns               ;
+; N/A   ; 106.38 MHz ( period = 9.400 ns ) ; state[2]~reg0       ; next_state[3]$latch ; clock      ; clock    ; None                        ; None                      ; 15.200 ns               ;
+; N/A   ; 107.53 MHz ( period = 9.300 ns ) ; state[3]~reg0       ; next_state[0]$latch ; clock      ; clock    ; None                        ; None                      ; 14.800 ns               ;
+; N/A   ; 108.70 MHz ( period = 9.200 ns ) ; state[3]~reg0       ; next_state[2]$latch ; clock      ; clock    ; None                        ; None                      ; 14.500 ns               ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns ) ; state[2]~reg0       ; next_state[4]$latch ; clock      ; clock    ; None                        ; None                      ; 14.700 ns               ;
+; N/A   ; 112.36 MHz ( period = 8.900 ns ) ; state[0]~reg0       ; ID[3]$latch         ; clock      ; clock    ; None                        ; None                      ; 14.000 ns               ;
+; N/A   ; 120.48 MHz ( period = 8.300 ns ) ; state[0]~reg0       ; ID[0]$latch         ; clock      ; clock    ; None                        ; None                      ; 10.800 ns               ;
+; N/A   ; 120.48 MHz ( period = 8.300 ns ) ; state[0]~reg0       ; ID[6]$latch         ; clock      ; clock    ; None                        ; None                      ; 10.800 ns               ;
+; N/A   ; 125.00 MHz ( period = 8.000 ns ) ; state[3]~reg0       ; next_state[1]$latch ; clock      ; clock    ; None                        ; None                      ; 13.200 ns               ;
+; N/A   ; 128.21 MHz ( period = 7.800 ns ) ; state[2]~reg0       ; ID[0]$latch         ; clock      ; clock    ; None                        ; None                      ; 10.300 ns               ;
+; N/A   ; 128.21 MHz ( period = 7.800 ns ) ; state[2]~reg0       ; ID[6]$latch         ; clock      ; clock    ; None                        ; None                      ; 10.300 ns               ;
+; N/A   ; 129.87 MHz ( period = 7.700 ns ) ; state[0]~reg0       ; ID[10]$latch        ; clock      ; clock    ; None                        ; None                      ; 13.500 ns               ;
+; N/A   ; 136.99 MHz ( period = 7.300 ns ) ; state[1]~reg0       ; ID[0]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.800 ns                ;
+; N/A   ; 136.99 MHz ( period = 7.300 ns ) ; state[1]~reg0       ; ID[6]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.800 ns                ;
+; N/A   ; 136.99 MHz ( period = 7.300 ns ) ; state[1]~reg0       ; ID[11]$latch        ; clock      ; clock    ; None                        ; None                      ; 12.000 ns               ;
+; N/A   ; 140.85 MHz ( period = 7.100 ns ) ; state[2]~reg0       ; ID[3]$latch         ; clock      ; clock    ; None                        ; None                      ; 12.200 ns               ;
+; N/A   ; 140.85 MHz ( period = 7.100 ns ) ; state[0]~reg0       ; ID[9]$latch         ; clock      ; clock    ; None                        ; None                      ; 12.800 ns               ;
+; N/A   ; 142.86 MHz ( period = 7.000 ns ) ; state[4]~reg0       ; next_state[4]$latch ; clock      ; clock    ; None                        ; None                      ; 12.800 ns               ;
+; N/A   ; 147.06 MHz ( period = 6.800 ns ) ; state[2]~reg0       ; ID[11]$latch        ; clock      ; clock    ; None                        ; None                      ; 11.500 ns               ;
+; N/A   ; 153.85 MHz ( period = 6.500 ns ) ; state[1]~reg0       ; ID[5]$latch         ; clock      ; clock    ; None                        ; None                      ; 12.200 ns               ;
+; N/A   ; 153.85 MHz ( period = 6.500 ns ) ; state[1]~reg0       ; ID[9]$latch         ; clock      ; clock    ; None                        ; None                      ; 12.200 ns               ;
+; N/A   ; 156.25 MHz ( period = 6.400 ns ) ; state[4]~reg0       ; ID[9]$latch         ; clock      ; clock    ; None                        ; None                      ; 12.100 ns               ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns ) ; state[3]~reg0       ; next_state[4]$latch ; clock      ; clock    ; None                        ; None                      ; 11.800 ns               ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns ) ; state[2]~reg0       ; ID[5]$latch         ; clock      ; clock    ; None                        ; None                      ; 11.700 ns               ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns ) ; state[2]~reg0       ; ID[9]$latch         ; clock      ; clock    ; None                        ; None                      ; 11.700 ns               ;
+; N/A   ; 166.67 MHz ( period = 6.000 ns ) ; state[1]~reg0       ; ID[10]$latch        ; clock      ; clock    ; None                        ; None                      ; 11.800 ns               ;
+; N/A   ; 169.49 MHz ( period = 5.900 ns ) ; state[4]~reg0       ; ID[6]$latch         ; clock      ; clock    ; None                        ; None                      ; 8.400 ns                ;
+; N/A   ; 169.49 MHz ( period = 5.900 ns ) ; state[0]~reg0       ; ID[8]$latch         ; clock      ; clock    ; None                        ; None                      ; 11.000 ns               ;
+; N/A   ; 169.49 MHz ( period = 5.900 ns ) ; state[3]~reg0       ; ID[9]$latch         ; clock      ; clock    ; None                        ; None                      ; 11.600 ns               ;
+; N/A   ; 169.49 MHz ( period = 5.900 ns ) ; state[2]~reg0       ; ID[10]$latch        ; clock      ; clock    ; None                        ; None                      ; 11.700 ns               ;
+; N/A   ; 172.41 MHz ( period = 5.800 ns ) ; state[3]~reg0       ; ID[0]$latch         ; clock      ; clock    ; None                        ; None                      ; 8.300 ns                ;
+; N/A   ; 178.57 MHz ( period = 5.600 ns ) ; state[0]~reg0       ; ID[1]$latch         ; clock      ; clock    ; None                        ; None                      ; 10.200 ns               ;
+; N/A   ; 178.57 MHz ( period = 5.600 ns ) ; state[0]~reg0       ; ID[4]$latch         ; clock      ; clock    ; None                        ; None                      ; 10.200 ns               ;
+; N/A   ; 185.19 MHz ( period = 5.400 ns ) ; state[4]~reg0       ; ID[3]$latch         ; clock      ; clock    ; None                        ; None                      ; 10.500 ns               ;
+; N/A   ; 185.19 MHz ( period = 5.400 ns ) ; state[0]~reg0       ; ID[11]$latch        ; clock      ; clock    ; None                        ; None                      ; 10.100 ns               ;
+; N/A   ; 204.08 MHz ( period = 4.900 ns ) ; state[4]~reg0       ; ID[1]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.500 ns                ;
+; N/A   ; 204.08 MHz ( period = 4.900 ns ) ; state[4]~reg0       ; ID[4]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.500 ns                ;
+; N/A   ; 204.08 MHz ( period = 4.900 ns ) ; state[3]~reg0       ; ID[7]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.600 ns                ;
+; N/A   ; 204.08 MHz ( period = 4.900 ns ) ; state[3]~reg0       ; ID[11]$latch        ; clock      ; clock    ; None                        ; None                      ; 9.600 ns                ;
+; N/A   ; 208.33 MHz ( period = 4.800 ns ) ; state[4]~reg0       ; ID[11]$latch        ; clock      ; clock    ; None                        ; None                      ; 9.500 ns                ;
+; N/A   ; 212.77 MHz ( period = 4.700 ns ) ; state[1]~reg0       ; ID[3]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.800 ns                ;
+; N/A   ; 212.77 MHz ( period = 4.700 ns ) ; state[3]~reg0       ; ID[3]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.800 ns                ;
+; N/A   ; 217.39 MHz ( period = 4.600 ns ) ; state[2]~reg0       ; ID[8]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.700 ns                ;
+; N/A   ; 227.27 MHz ( period = 4.400 ns ) ; state[4]~reg0       ; ID[0]$latch         ; clock      ; clock    ; None                        ; None                      ; 6.900 ns                ;
+; N/A   ; 227.27 MHz ( period = 4.400 ns ) ; state[3]~reg0       ; ID[1]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.000 ns                ;
+; N/A   ; 227.27 MHz ( period = 4.400 ns ) ; state[3]~reg0       ; ID[4]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.000 ns                ;
+; N/A   ; 227.27 MHz ( period = 4.400 ns ) ; state[3]~reg0       ; ID[5]$latch         ; clock      ; clock    ; None                        ; None                      ; 10.100 ns               ;
+; N/A   ; 227.27 MHz ( period = 4.400 ns ) ; state[4]~reg0       ; ID[8]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.500 ns                ;
+; N/A   ; 227.27 MHz ( period = 4.400 ns ) ; state[3]~reg0       ; camera$latch        ; clock      ; clock    ; None                        ; None                      ; 6.800 ns                ;
+; N/A   ; 232.56 MHz ( period = 4.300 ns ) ; state[3]~reg0       ; ID[6]$latch         ; clock      ; clock    ; None                        ; None                      ; 6.800 ns                ;
+; N/A   ; 232.56 MHz ( period = 4.300 ns ) ; state[4]~reg0       ; ID[7]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.000 ns                ;
+; N/A   ; 238.10 MHz ( period = 4.200 ns ) ; state[1]~reg0       ; ID[8]$latch         ; clock      ; clock    ; None                        ; None                      ; 9.300 ns                ;
+; N/A   ; 256.41 MHz ( period = 3.900 ns ) ; state[4]~reg0       ; next_state[2]$latch ; clock      ; clock    ; None                        ; None                      ; 9.200 ns                ;
+; N/A   ; 303.03 MHz ( period = 3.300 ns ) ; state[4]~reg0       ; next_state[0]$latch ; clock      ; clock    ; None                        ; None                      ; 8.800 ns                ;
+; N/A   ; 303.03 MHz ( period = 3.300 ns ) ; state[4]~reg0       ; next_state[1]$latch ; clock      ; clock    ; None                        ; None                      ; 8.500 ns                ;
+; N/A   ; 322.58 MHz ( period = 3.100 ns ) ; state[4]~reg0       ; ID[5]$latch         ; clock      ; clock    ; None                        ; None                      ; 8.800 ns                ;
+; N/A   ; 344.83 MHz ( period = 2.900 ns ) ; state[0]~reg0       ; ID[7]$latch         ; clock      ; clock    ; None                        ; None                      ; 7.600 ns                ;
+; N/A   ; 344.83 MHz ( period = 2.900 ns ) ; state[3]~reg0       ; ID[10]$latch        ; clock      ; clock    ; None                        ; None                      ; 8.700 ns                ;
+; N/A   ; 370.37 MHz ( period = 2.700 ns ) ; state[0]~reg0       ; ID[5]$latch         ; clock      ; clock    ; None                        ; None                      ; 8.400 ns                ;
+; N/A   ; 370.37 MHz ( period = 2.700 ns ) ; state[3]~reg0       ; ID[8]$latch         ; clock      ; clock    ; None                        ; None                      ; 7.800 ns                ;
+; N/A   ; 370.37 MHz ( period = 2.700 ns ) ; state[4]~reg0       ; ID[10]$latch        ; clock      ; clock    ; None                        ; None                      ; 8.500 ns                ;
+; N/A   ; 416.67 MHz ( period = 2.400 ns ) ; state[2]~reg0       ; ID[1]$latch         ; clock      ; clock    ; None                        ; None                      ; 7.000 ns                ;
+; N/A   ; 416.67 MHz ( period = 2.400 ns ) ; state[1]~reg0       ; ID[2]$latch         ; clock      ; clock    ; None                        ; None                      ; 7.000 ns                ;
+; N/A   ; 416.67 MHz ( period = 2.400 ns ) ; state[2]~reg0       ; ID[2]$latch         ; clock      ; clock    ; None                        ; None                      ; 7.000 ns                ;
+; N/A   ; 416.67 MHz ( period = 2.400 ns ) ; state[3]~reg0       ; ID[2]$latch         ; clock      ; clock    ; None                        ; None                      ; 7.000 ns                ;
+; N/A   ; 416.67 MHz ( period = 2.400 ns ) ; state[1]~reg0       ; ID[4]$latch         ; clock      ; clock    ; None                        ; None                      ; 7.000 ns                ;
+; N/A   ; 434.78 MHz ( period = 2.300 ns ) ; state[2]~reg0       ; ID[7]$latch         ; clock      ; clock    ; None                        ; None                      ; 7.000 ns                ;
+; N/A   ; 526.32 MHz ( period = 1.900 ns ) ; state[1]~reg0       ; ID[1]$latch         ; clock      ; clock    ; None                        ; None                      ; 6.500 ns                ;
+; N/A   ; 526.32 MHz ( period = 1.900 ns ) ; state[4]~reg0       ; ID[2]$latch         ; clock      ; clock    ; None                        ; None                      ; 6.500 ns                ;
+; N/A   ; 526.32 MHz ( period = 1.900 ns ) ; state[2]~reg0       ; ID[4]$latch         ; clock      ; clock    ; None                        ; None                      ; 6.500 ns                ;
+; N/A   ; 555.56 MHz ( period = 1.800 ns ) ; state[1]~reg0       ; ID[7]$latch         ; clock      ; clock    ; None                        ; None                      ; 6.500 ns                ;
+; N/A   ; 666.67 MHz ( period = 1.500 ns ) ; state[4]~reg0       ; next_state[3]$latch ; clock      ; clock    ; None                        ; None                      ; 7.300 ns                ;
++-------+----------------------------------+---------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'clock'                                                                                                                                                                         ;
++------------------------------------------+---------------+---------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From          ; To                  ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+---------------+---------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; next_state[4]$latch ; clock      ; clock    ; None                       ; None                       ; 5.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; next_state[4]$latch ; clock      ; clock    ; None                       ; None                       ; 5.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; next_state[3]$latch ; clock      ; clock    ; None                       ; None                       ; 7.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; next_state[4]$latch ; clock      ; clock    ; None                       ; None                       ; 7.900 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; next_state[0]$latch ; clock      ; clock    ; None                       ; None                       ; 8.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; next_state[1]$latch ; clock      ; clock    ; None                       ; None                       ; 8.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; next_state[2]$latch ; clock      ; clock    ; None                       ; None                       ; 9.200 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; next_state[4]$latch ; clock      ; clock    ; None                       ; None                       ; 10.200 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; next_state[0]$latch ; clock      ; clock    ; None                       ; None                       ; 10.100 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; next_state[4]$latch ; clock      ; clock    ; None                       ; None                       ; 10.600 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; next_state[1]$latch ; clock      ; clock    ; None                       ; None                       ; 10.200 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; next_state[0]$latch ; clock      ; clock    ; None                       ; None                       ; 10.900 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; next_state[0]$latch ; clock      ; clock    ; None                       ; None                       ; 11.000 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; next_state[3]$latch ; clock      ; clock    ; None                       ; None                       ; 11.500 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; next_state[0]$latch ; clock      ; clock    ; None                       ; None                       ; 12.200 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; next_state[2]$latch ; clock      ; clock    ; None                       ; None                       ; 12.000 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; next_state[2]$latch ; clock      ; clock    ; None                       ; None                       ; 12.100 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[7]$latch         ; clock      ; clock    ; None                       ; None                       ; 6.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[11]$latch        ; clock      ; clock    ; None                       ; None                       ; 6.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; next_state[3]$latch ; clock      ; clock    ; None                       ; None                       ; 13.400 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[1]$latch         ; clock      ; clock    ; None                       ; None                       ; 6.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[2]$latch         ; clock      ; clock    ; None                       ; None                       ; 6.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[4]$latch         ; clock      ; clock    ; None                       ; None                       ; 6.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; next_state[3]$latch ; clock      ; clock    ; None                       ; None                       ; 13.500 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; next_state[1]$latch ; clock      ; clock    ; None                       ; None                       ; 13.200 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; next_state[3]$latch ; clock      ; clock    ; None                       ; None                       ; 13.800 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[7]$latch         ; clock      ; clock    ; None                       ; None                       ; 7.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[11]$latch        ; clock      ; clock    ; None                       ; None                       ; 7.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[1]$latch         ; clock      ; clock    ; None                       ; None                       ; 7.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[2]$latch         ; clock      ; clock    ; None                       ; None                       ; 7.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[2]$latch         ; clock      ; clock    ; None                       ; None                       ; 7.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[2]$latch         ; clock      ; clock    ; None                       ; None                       ; 7.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[4]$latch         ; clock      ; clock    ; None                       ; None                       ; 7.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[9]$latch         ; clock      ; clock    ; None                       ; None                       ; 8.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[3]$latch         ; clock      ; clock    ; None                       ; None                       ; 7.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[5]$latch         ; clock      ; clock    ; None                       ; None                       ; 8.400 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[8]$latch         ; clock      ; clock    ; None                       ; None                       ; 7.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[10]$latch        ; clock      ; clock    ; None                       ; None                       ; 8.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; next_state[2]$latch ; clock      ; clock    ; None                       ; None                       ; 13.800 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[5]$latch         ; clock      ; clock    ; None                       ; None                       ; 8.600 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[7]$latch         ; clock      ; clock    ; None                       ; None                       ; 7.600 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[10]$latch        ; clock      ; clock    ; None                       ; None                       ; 8.700 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[5]$latch         ; clock      ; clock    ; None                       ; None                       ; 8.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[9]$latch         ; clock      ; clock    ; None                       ; None                       ; 8.900 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; next_state[1]$latch ; clock      ; clock    ; None                       ; None                       ; 14.300 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; next_state[1]$latch ; clock      ; clock    ; None                       ; None                       ; 14.600 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[5]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.400 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; next_state[2]$latch ; clock      ; clock    ; None                       ; None                       ; 14.800 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[5]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[3]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[8]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[9]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.900 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[6]$latch         ; clock      ; clock    ; None                       ; None                       ; 6.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[7]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[9]$latch         ; clock      ; clock    ; None                       ; None                       ; 10.000 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[11]$latch        ; clock      ; clock    ; None                       ; None                       ; 9.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; camera$latch        ; clock      ; clock    ; None                       ; None                       ; 6.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[0]$latch         ; clock      ; clock    ; None                       ; None                       ; 6.900 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[1]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[3]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[4]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.000 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[8]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[11]$latch        ; clock      ; clock    ; None                       ; None                       ; 9.100 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[3]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.700 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[8]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.700 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[1]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[4]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.500 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[7]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.600 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[9]$latch         ; clock      ; clock    ; None                       ; None                       ; 10.600 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[11]$latch        ; clock      ; clock    ; None                       ; None                       ; 10.100 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[1]$latch         ; clock      ; clock    ; None                       ; None                       ; 10.200 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[4]$latch         ; clock      ; clock    ; None                       ; None                       ; 10.200 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[3]~reg0 ; ID[0]$latch         ; clock      ; clock    ; None                       ; None                       ; 8.300 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[3]$latch         ; clock      ; clock    ; None                       ; None                       ; 11.000 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; ID[6]$latch         ; clock      ; clock    ; None                       ; None                       ; 8.400 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[8]$latch         ; clock      ; clock    ; None                       ; None                       ; 11.000 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[10]$latch        ; clock      ; clock    ; None                       ; None                       ; 11.700 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[10]$latch        ; clock      ; clock    ; None                       ; None                       ; 11.800 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[0]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; ID[6]$latch         ; clock      ; clock    ; None                       ; None                       ; 9.800 ns                 ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[10]$latch        ; clock      ; clock    ; None                       ; None                       ; 13.500 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[0]$latch         ; clock      ; clock    ; None                       ; None                       ; 10.300 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; ID[6]$latch         ; clock      ; clock    ; None                       ; None                       ; 10.300 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[4]~reg0 ; camera$latch        ; clock      ; clock    ; None                       ; None                       ; 10.400 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[0]$latch         ; clock      ; clock    ; None                       ; None                       ; 10.800 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[0]~reg0 ; ID[6]$latch         ; clock      ; clock    ; None                       ; None                       ; 10.800 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[1]~reg0 ; camera$latch        ; clock      ; clock    ; None                       ; None                       ; 10.900 ns                ;
+; Not operational: Clock Skew > Data Delay ; state[2]~reg0 ; camera$latch        ; clock      ; clock    ; None                       ; None                       ; 10.900 ns                ;
++------------------------------------------+---------------+---------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                ;
++-----------------------------------------+-----------------------------------------------------+------------+------+---------------------+----------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From ; To                  ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+------+---------------------+----------+
+; N/A                                     ; None                                                ; 29.100 ns  ; a3   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 28.900 ns  ; b2   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 28.800 ns  ; c3   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 28.700 ns  ; a3   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 28.700 ns  ; b3   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 28.600 ns  ; a2   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 28.500 ns  ; b2   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 28.400 ns  ; c3   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 28.300 ns  ; d2   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 28.300 ns  ; b3   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 28.200 ns  ; a2   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 27.900 ns  ; d2   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 27.800 ns  ; a3   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 27.700 ns  ; a3   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 27.600 ns  ; b2   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 27.500 ns  ; b2   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 27.500 ns  ; c3   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 27.400 ns  ; b3   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 27.400 ns  ; c3   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 27.300 ns  ; b3   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 27.300 ns  ; a2   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 27.200 ns  ; a2   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 27.000 ns  ; d2   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 26.900 ns  ; d2   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 26.800 ns  ; a3   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 26.600 ns  ; b2   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 26.600 ns  ; a3   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 26.500 ns  ; c3   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 26.400 ns  ; b2   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 26.400 ns  ; a3   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 26.400 ns  ; b3   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 26.300 ns  ; c3   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 26.300 ns  ; a2   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 26.200 ns  ; b2   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 26.200 ns  ; a3   ; next_state[1]$latch ; d1       ;
+; N/A                                     ; None                                                ; 26.200 ns  ; b3   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 26.200 ns  ; d3   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 26.100 ns  ; c3   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 26.100 ns  ; a2   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 26.000 ns  ; d2   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 26.000 ns  ; b2   ; next_state[1]$latch ; d1       ;
+; N/A                                     ; None                                                ; 26.000 ns  ; b3   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 25.900 ns  ; c2   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 25.900 ns  ; c3   ; next_state[1]$latch ; d1       ;
+; N/A                                     ; None                                                ; 25.900 ns  ; a2   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 25.800 ns  ; d2   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 25.800 ns  ; a3   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 25.800 ns  ; a3   ; next_state[2]$latch ; d3       ;
+; N/A                                     ; None                                                ; 25.800 ns  ; b3   ; next_state[1]$latch ; d1       ;
+; N/A                                     ; None                                                ; 25.800 ns  ; d3   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 25.700 ns  ; a2   ; next_state[1]$latch ; d1       ;
+; N/A                                     ; None                                                ; 25.600 ns  ; d2   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 25.600 ns  ; b2   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 25.600 ns  ; b2   ; next_state[2]$latch ; d3       ;
+; N/A                                     ; None                                                ; 25.500 ns  ; c2   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 25.500 ns  ; c3   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 25.500 ns  ; c3   ; next_state[2]$latch ; d3       ;
+; N/A                                     ; None                                                ; 25.400 ns  ; d2   ; next_state[1]$latch ; d1       ;
+; N/A                                     ; None                                                ; 25.400 ns  ; b3   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 25.400 ns  ; b3   ; next_state[2]$latch ; d3       ;
+; N/A                                     ; None                                                ; 25.300 ns  ; b1   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 25.300 ns  ; a3   ; next_state[1]$latch ; c2       ;
+; N/A                                     ; None                                                ; 25.300 ns  ; a2   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 25.300 ns  ; a2   ; next_state[2]$latch ; d3       ;
+; N/A                                     ; None                                                ; 25.200 ns  ; a3   ; next_state[1]$latch ; c1       ;
+; N/A                                     ; None                                                ; 25.200 ns  ; a3   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 25.100 ns  ; b2   ; next_state[1]$latch ; c2       ;
+; N/A                                     ; None                                                ; 25.000 ns  ; d2   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 25.000 ns  ; d2   ; next_state[2]$latch ; d3       ;
+; N/A                                     ; None                                                ; 25.000 ns  ; b2   ; next_state[1]$latch ; c1       ;
+; N/A                                     ; None                                                ; 25.000 ns  ; b2   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 25.000 ns  ; c3   ; next_state[1]$latch ; c2       ;
+; N/A                                     ; None                                                ; 24.900 ns  ; b1   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 24.900 ns  ; b3   ; next_state[1]$latch ; c2       ;
+; N/A                                     ; None                                                ; 24.900 ns  ; d3   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 24.900 ns  ; c3   ; next_state[1]$latch ; c1       ;
+; N/A                                     ; None                                                ; 24.900 ns  ; c3   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 24.800 ns  ; b3   ; next_state[1]$latch ; c1       ;
+; N/A                                     ; None                                                ; 24.800 ns  ; b3   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 24.800 ns  ; d3   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 24.800 ns  ; a2   ; next_state[1]$latch ; c2       ;
+; N/A                                     ; None                                                ; 24.700 ns  ; a2   ; next_state[1]$latch ; c1       ;
+; N/A                                     ; None                                                ; 24.700 ns  ; a2   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 24.600 ns  ; a3   ; next_state[2]$latch ; a1       ;
+; N/A                                     ; None                                                ; 24.600 ns  ; c2   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 24.500 ns  ; d2   ; next_state[1]$latch ; c2       ;
+; N/A                                     ; None                                                ; 24.500 ns  ; c2   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 24.400 ns  ; d2   ; next_state[1]$latch ; c1       ;
+; N/A                                     ; None                                                ; 24.400 ns  ; d2   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 24.400 ns  ; b2   ; next_state[2]$latch ; a1       ;
+; N/A                                     ; None                                                ; 24.300 ns  ; a3   ; next_state[1]$latch ; d2       ;
+; N/A                                     ; None                                                ; 24.300 ns  ; c3   ; next_state[2]$latch ; a1       ;
+; N/A                                     ; None                                                ; 24.200 ns  ; b3   ; next_state[2]$latch ; a1       ;
+; N/A                                     ; None                                                ; 24.100 ns  ; b2   ; next_state[1]$latch ; d2       ;
+; N/A                                     ; None                                                ; 24.100 ns  ; a2   ; next_state[2]$latch ; a1       ;
+; N/A                                     ; None                                                ; 24.000 ns  ; d1   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 24.000 ns  ; b1   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 24.000 ns  ; c3   ; next_state[1]$latch ; d2       ;
+; N/A                                     ; None                                                ; 23.900 ns  ; b1   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 23.900 ns  ; a3   ; next_state[1]$latch ; b3       ;
+; N/A                                     ; None                                                ; 23.900 ns  ; b3   ; next_state[1]$latch ; d2       ;
+; N/A                                     ; None                                                ; 23.900 ns  ; d3   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 23.800 ns  ; d2   ; next_state[2]$latch ; a1       ;
+; N/A                                     ; None                                                ; 23.800 ns  ; a2   ; next_state[1]$latch ; d2       ;
+; N/A                                     ; None                                                ; 23.700 ns  ; b2   ; next_state[1]$latch ; b3       ;
+; N/A                                     ; None                                                ; 23.700 ns  ; d3   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 23.600 ns  ; d1   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 23.600 ns  ; c2   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 23.600 ns  ; c3   ; next_state[1]$latch ; b3       ;
+; N/A                                     ; None                                                ; 23.500 ns  ; d2   ; next_state[1]$latch ; d2       ;
+; N/A                                     ; None                                                ; 23.500 ns  ; b3   ; next_state[1]$latch ; b3       ;
+; N/A                                     ; None                                                ; 23.500 ns  ; d3   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 23.400 ns  ; c1   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 23.400 ns  ; c2   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 23.400 ns  ; a2   ; next_state[1]$latch ; b3       ;
+; N/A                                     ; None                                                ; 23.300 ns  ; a3   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 23.300 ns  ; a3   ; next_state[1]$latch ; d3       ;
+; N/A                                     ; None                                                ; 23.300 ns  ; d3   ; next_state[1]$latch ; d1       ;
+; N/A                                     ; None                                                ; 23.200 ns  ; c2   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 23.100 ns  ; d2   ; next_state[1]$latch ; b3       ;
+; N/A                                     ; None                                                ; 23.100 ns  ; b2   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 23.100 ns  ; b2   ; next_state[1]$latch ; d3       ;
+; N/A                                     ; None                                                ; 23.000 ns  ; b1   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 23.000 ns  ; a3   ; next_state[2]$latch ; b1       ;
+; N/A                                     ; None                                                ; 23.000 ns  ; c1   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 23.000 ns  ; c2   ; next_state[1]$latch ; d1       ;
+; N/A                                     ; None                                                ; 23.000 ns  ; a1   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 23.000 ns  ; c3   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 23.000 ns  ; c3   ; next_state[1]$latch ; d3       ;
+; N/A                                     ; None                                                ; 22.900 ns  ; b3   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 22.900 ns  ; b3   ; next_state[1]$latch ; d3       ;
+; N/A                                     ; None                                                ; 22.900 ns  ; d3   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 22.900 ns  ; d3   ; next_state[2]$latch ; d3       ;
+; N/A                                     ; None                                                ; 22.800 ns  ; b1   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 22.800 ns  ; b2   ; next_state[2]$latch ; b1       ;
+; N/A                                     ; None                                                ; 22.800 ns  ; a3   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 22.800 ns  ; a3   ; next_state[2]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 22.800 ns  ; a2   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 22.800 ns  ; a2   ; next_state[1]$latch ; d3       ;
+; N/A                                     ; None                                                ; 22.700 ns  ; d1   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 22.700 ns  ; b2   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 22.700 ns  ; a3   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 22.700 ns  ; c3   ; next_state[2]$latch ; b1       ;
+; N/A                                     ; None                                                ; 22.600 ns  ; d1   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 22.600 ns  ; b1   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 22.600 ns  ; b2   ; next_state[2]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 22.600 ns  ; c2   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 22.600 ns  ; c2   ; next_state[2]$latch ; d3       ;
+; N/A                                     ; None                                                ; 22.600 ns  ; b3   ; next_state[2]$latch ; b1       ;
+; N/A                                     ; None                                                ; 22.600 ns  ; a1   ; next_state[2]$latch ; d1       ;
+; N/A                                     ; None                                                ; 22.600 ns  ; c3   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 22.500 ns  ; d2   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 22.500 ns  ; d2   ; next_state[1]$latch ; d3       ;
+; N/A                                     ; None                                                ; 22.500 ns  ; b2   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 22.500 ns  ; b3   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 22.500 ns  ; c3   ; next_state[2]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 22.500 ns  ; a2   ; next_state[2]$latch ; b1       ;
+; N/A                                     ; None                                                ; 22.400 ns  ; b1   ; next_state[1]$latch ; d1       ;
+; N/A                                     ; None                                                ; 22.400 ns  ; a3   ; next_state[0]$latch ; d1       ;
+; N/A                                     ; None                                                ; 22.400 ns  ; a3   ; next_state[2]$latch ; a3       ;
+; N/A                                     ; None                                                ; 22.400 ns  ; b3   ; next_state[2]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 22.400 ns  ; d3   ; next_state[1]$latch ; c2       ;
+; N/A                                     ; None                                                ; 22.400 ns  ; c3   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 22.400 ns  ; a2   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 22.300 ns  ; b2   ; next_state[0]$latch ; d1       ;
+; N/A                                     ; None                                                ; 22.300 ns  ; b3   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 22.300 ns  ; d3   ; next_state[1]$latch ; c1       ;
+; N/A                                     ; None                                                ; 22.300 ns  ; d3   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 22.300 ns  ; a2   ; next_state[2]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 22.200 ns  ; d2   ; next_state[2]$latch ; b1       ;
+; N/A                                     ; None                                                ; 22.200 ns  ; b2   ; next_state[2]$latch ; a3       ;
+; N/A                                     ; None                                                ; 22.200 ns  ; c3   ; next_state[0]$latch ; d1       ;
+; N/A                                     ; None                                                ; 22.200 ns  ; a2   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 22.100 ns  ; a3   ; next_state[1]$latch ; a1       ;
+; N/A                                     ; None                                                ; 22.100 ns  ; a3   ; next_state[2]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 22.100 ns  ; c1   ; next_state[2]$latch ; c2       ;
+; N/A                                     ; None                                                ; 22.100 ns  ; c2   ; next_state[1]$latch ; c2       ;
+; N/A                                     ; None                                                ; 22.100 ns  ; b3   ; next_state[0]$latch ; d1       ;
+; N/A                                     ; None                                                ; 22.100 ns  ; c3   ; next_state[2]$latch ; a3       ;
+; N/A                                     ; None                                                ; 22.000 ns  ; d2   ; next_state[2]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 22.000 ns  ; b1   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 22.000 ns  ; b1   ; next_state[2]$latch ; d3       ;
+; N/A                                     ; None                                                ; 22.000 ns  ; c1   ; next_state[2]$latch ; c1       ;
+; N/A                                     ; None                                                ; 22.000 ns  ; c2   ; next_state[1]$latch ; c1       ;
+; N/A                                     ; None                                                ; 22.000 ns  ; c2   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 22.000 ns  ; b3   ; next_state[2]$latch ; a3       ;
+; N/A                                     ; None                                                ; 22.000 ns  ; a2   ; next_state[0]$latch ; d1       ;
+; N/A                                     ; None                                                ; 21.900 ns  ; d2   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 21.900 ns  ; b2   ; next_state[1]$latch ; a1       ;
+; N/A                                     ; None                                                ; 21.900 ns  ; b2   ; next_state[2]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 21.900 ns  ; a2   ; next_state[2]$latch ; a3       ;
+; N/A                                     ; None                                                ; 21.800 ns  ; a3   ; next_state[2]$latch ; b2       ;
+; N/A                                     ; None                                                ; 21.800 ns  ; c3   ; next_state[1]$latch ; a1       ;
+; N/A                                     ; None                                                ; 21.800 ns  ; c3   ; next_state[2]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 21.700 ns  ; d1   ; next_state[2]$latch ; d2       ;
+; N/A                                     ; None                                                ; 21.700 ns  ; a3   ; next_state[2]$latch ; c3       ;
+; N/A                                     ; None                                                ; 21.700 ns  ; b3   ; next_state[1]$latch ; a1       ;
+; N/A                                     ; None                                                ; 21.700 ns  ; b3   ; next_state[2]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 21.700 ns  ; d3   ; next_state[2]$latch ; a1       ;
+; N/A                                     ; None                                                ; 21.700 ns  ; a1   ; next_state[2]$latch ; c2       ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;      ;                     ;          ;
++-----------------------------------------+-----------------------------------------------------+------------+------+---------------------+----------+
+
+
++--------------------------------------------------------------------------------------+
+; tco                                                                                  ;
++-------+--------------+------------+---------------------+---------------+------------+
+; Slack ; Required tco ; Actual tco ; From                ; To            ; From Clock ;
++-------+--------------+------------+---------------------+---------------+------------+
+; N/A   ; None         ; 32.500 ns  ; next_state[4]$latch ; next_state[4] ; ss2        ;
+; N/A   ; None         ; 32.500 ns  ; next_state[3]$latch ; next_state[3] ; ss2        ;
+; N/A   ; None         ; 32.300 ns  ; next_state[0]$latch ; next_state[0] ; ss2        ;
+; N/A   ; None         ; 32.100 ns  ; next_state[2]$latch ; next_state[2] ; ss2        ;
+; N/A   ; None         ; 31.900 ns  ; next_state[4]$latch ; next_state[4] ; ss3        ;
+; N/A   ; None         ; 31.900 ns  ; next_state[3]$latch ; next_state[3] ; ss3        ;
+; N/A   ; None         ; 31.900 ns  ; next_state[1]$latch ; next_state[1] ; ss2        ;
+; N/A   ; None         ; 31.800 ns  ; next_state[4]$latch ; next_state[4] ; a3         ;
+; N/A   ; None         ; 31.800 ns  ; next_state[3]$latch ; next_state[3] ; a3         ;
+; N/A   ; None         ; 31.700 ns  ; next_state[0]$latch ; next_state[0] ; ss3        ;
+; N/A   ; None         ; 31.600 ns  ; next_state[0]$latch ; next_state[0] ; a3         ;
+; N/A   ; None         ; 31.500 ns  ; next_state[2]$latch ; next_state[2] ; ss3        ;
+; N/A   ; None         ; 31.400 ns  ; next_state[4]$latch ; next_state[4] ; ss1        ;
+; N/A   ; None         ; 31.400 ns  ; next_state[3]$latch ; next_state[3] ; ss1        ;
+; N/A   ; None         ; 31.400 ns  ; next_state[2]$latch ; next_state[2] ; a3         ;
+; N/A   ; None         ; 31.300 ns  ; next_state[1]$latch ; next_state[1] ; ss3        ;
+; N/A   ; None         ; 31.200 ns  ; next_state[1]$latch ; next_state[1] ; a3         ;
+; N/A   ; None         ; 31.200 ns  ; next_state[0]$latch ; next_state[0] ; ss1        ;
+; N/A   ; None         ; 31.100 ns  ; next_state[4]$latch ; next_state[4] ; c3         ;
+; N/A   ; None         ; 31.100 ns  ; next_state[3]$latch ; next_state[3] ; c3         ;
+; N/A   ; None         ; 31.000 ns  ; next_state[4]$latch ; next_state[4] ; clock      ;
+; N/A   ; None         ; 31.000 ns  ; next_state[3]$latch ; next_state[3] ; clock      ;
+; N/A   ; None         ; 31.000 ns  ; next_state[2]$latch ; next_state[2] ; ss1        ;
+; N/A   ; None         ; 30.900 ns  ; next_state[0]$latch ; next_state[0] ; c3         ;
+; N/A   ; None         ; 30.800 ns  ; next_state[1]$latch ; next_state[1] ; ss1        ;
+; N/A   ; None         ; 30.800 ns  ; next_state[0]$latch ; next_state[0] ; clock      ;
+; N/A   ; None         ; 30.700 ns  ; next_state[4]$latch ; next_state[4] ; a2         ;
+; N/A   ; None         ; 30.700 ns  ; next_state[3]$latch ; next_state[3] ; a2         ;
+; N/A   ; None         ; 30.700 ns  ; next_state[2]$latch ; next_state[2] ; c3         ;
+; N/A   ; None         ; 30.600 ns  ; next_state[2]$latch ; next_state[2] ; clock      ;
+; N/A   ; None         ; 30.500 ns  ; next_state[1]$latch ; next_state[1] ; c3         ;
+; N/A   ; None         ; 30.500 ns  ; next_state[0]$latch ; next_state[0] ; a2         ;
+; N/A   ; None         ; 30.400 ns  ; next_state[1]$latch ; next_state[1] ; clock      ;
+; N/A   ; None         ; 30.300 ns  ; next_state[2]$latch ; next_state[2] ; a2         ;
+; N/A   ; None         ; 30.100 ns  ; next_state[1]$latch ; next_state[1] ; a2         ;
+; N/A   ; None         ; 29.600 ns  ; next_state[4]$latch ; next_state[4] ; ss4        ;
+; N/A   ; None         ; 29.600 ns  ; next_state[3]$latch ; next_state[3] ; ss4        ;
+; N/A   ; None         ; 29.400 ns  ; next_state[0]$latch ; next_state[0] ; ss4        ;
+; N/A   ; None         ; 29.200 ns  ; next_state[2]$latch ; next_state[2] ; ss4        ;
+; N/A   ; None         ; 29.000 ns  ; next_state[1]$latch ; next_state[1] ; ss4        ;
+; N/A   ; None         ; 28.900 ns  ; next_state[4]$latch ; next_state[4] ; b3         ;
+; N/A   ; None         ; 28.900 ns  ; next_state[3]$latch ; next_state[3] ; b3         ;
+; N/A   ; None         ; 28.700 ns  ; next_state[0]$latch ; next_state[0] ; b3         ;
+; N/A   ; None         ; 28.500 ns  ; next_state[2]$latch ; next_state[2] ; b3         ;
+; N/A   ; None         ; 28.300 ns  ; next_state[1]$latch ; next_state[1] ; b3         ;
+; N/A   ; None         ; 28.200 ns  ; next_state[4]$latch ; next_state[4] ; d2         ;
+; N/A   ; None         ; 28.200 ns  ; next_state[3]$latch ; next_state[3] ; d2         ;
+; N/A   ; None         ; 28.000 ns  ; next_state[0]$latch ; next_state[0] ; d2         ;
+; N/A   ; None         ; 27.800 ns  ; next_state[2]$latch ; next_state[2] ; d2         ;
+; N/A   ; None         ; 27.700 ns  ; next_state[4]$latch ; next_state[4] ; b2         ;
+; N/A   ; None         ; 27.700 ns  ; next_state[3]$latch ; next_state[3] ; b2         ;
+; N/A   ; None         ; 27.600 ns  ; next_state[4]$latch ; next_state[4] ; a1         ;
+; N/A   ; None         ; 27.600 ns  ; next_state[3]$latch ; next_state[3] ; a1         ;
+; N/A   ; None         ; 27.600 ns  ; next_state[1]$latch ; next_state[1] ; d2         ;
+; N/A   ; None         ; 27.500 ns  ; next_state[0]$latch ; next_state[0] ; b2         ;
+; N/A   ; None         ; 27.400 ns  ; next_state[0]$latch ; next_state[0] ; a1         ;
+; N/A   ; None         ; 27.300 ns  ; next_state[2]$latch ; next_state[2] ; b2         ;
+; N/A   ; None         ; 27.200 ns  ; next_state[2]$latch ; next_state[2] ; a1         ;
+; N/A   ; None         ; 27.100 ns  ; next_state[1]$latch ; next_state[1] ; b2         ;
+; N/A   ; None         ; 27.000 ns  ; next_state[1]$latch ; next_state[1] ; a1         ;
+; N/A   ; None         ; 26.500 ns  ; next_state[4]$latch ; next_state[4] ; b1         ;
+; N/A   ; None         ; 26.500 ns  ; next_state[3]$latch ; next_state[3] ; b1         ;
+; N/A   ; None         ; 26.300 ns  ; next_state[0]$latch ; next_state[0] ; b1         ;
+; N/A   ; None         ; 26.200 ns  ; next_state[4]$latch ; next_state[4] ; d1         ;
+; N/A   ; None         ; 26.200 ns  ; next_state[3]$latch ; next_state[3] ; d1         ;
+; N/A   ; None         ; 26.100 ns  ; next_state[2]$latch ; next_state[2] ; b1         ;
+; N/A   ; None         ; 26.000 ns  ; next_state[4]$latch ; next_state[4] ; c1         ;
+; N/A   ; None         ; 26.000 ns  ; next_state[3]$latch ; next_state[3] ; c1         ;
+; N/A   ; None         ; 26.000 ns  ; next_state[0]$latch ; next_state[0] ; d1         ;
+; N/A   ; None         ; 25.900 ns  ; next_state[4]$latch ; next_state[4] ; c2         ;
+; N/A   ; None         ; 25.900 ns  ; next_state[3]$latch ; next_state[3] ; c2         ;
+; N/A   ; None         ; 25.900 ns  ; next_state[1]$latch ; next_state[1] ; b1         ;
+; N/A   ; None         ; 25.800 ns  ; next_state[4]$latch ; next_state[4] ; d3         ;
+; N/A   ; None         ; 25.800 ns  ; next_state[3]$latch ; next_state[3] ; d3         ;
+; N/A   ; None         ; 25.800 ns  ; next_state[2]$latch ; next_state[2] ; d1         ;
+; N/A   ; None         ; 25.800 ns  ; next_state[0]$latch ; next_state[0] ; c1         ;
+; N/A   ; None         ; 25.700 ns  ; next_state[0]$latch ; next_state[0] ; c2         ;
+; N/A   ; None         ; 25.600 ns  ; next_state[2]$latch ; next_state[2] ; c1         ;
+; N/A   ; None         ; 25.600 ns  ; next_state[1]$latch ; next_state[1] ; d1         ;
+; N/A   ; None         ; 25.600 ns  ; next_state[0]$latch ; next_state[0] ; d3         ;
+; N/A   ; None         ; 25.500 ns  ; next_state[2]$latch ; next_state[2] ; c2         ;
+; N/A   ; None         ; 25.400 ns  ; next_state[2]$latch ; next_state[2] ; d3         ;
+; N/A   ; None         ; 25.400 ns  ; next_state[1]$latch ; next_state[1] ; c1         ;
+; N/A   ; None         ; 25.300 ns  ; next_state[1]$latch ; next_state[1] ; c2         ;
+; N/A   ; None         ; 25.300 ns  ; ID[10]$latch        ; ID[10]        ; clock      ;
+; N/A   ; None         ; 25.300 ns  ; ID[9]$latch         ; ID[9]         ; clock      ;
+; N/A   ; None         ; 25.300 ns  ; ID[5]$latch         ; ID[5]         ; clock      ;
+; N/A   ; None         ; 25.200 ns  ; next_state[1]$latch ; next_state[1] ; d3         ;
+; N/A   ; None         ; 25.200 ns  ; ID[7]$latch         ; ID[7]         ; clock      ;
+; N/A   ; None         ; 25.100 ns  ; ID[1]$latch         ; ID[1]         ; clock      ;
+; N/A   ; None         ; 24.600 ns  ; ID[8]$latch         ; ID[8]         ; clock      ;
+; N/A   ; None         ; 24.600 ns  ; ID[3]$latch         ; ID[3]         ; clock      ;
+; N/A   ; None         ; 24.300 ns  ; ID[11]$latch        ; ID[11]        ; clock      ;
+; N/A   ; None         ; 24.100 ns  ; ID[4]$latch         ; ID[4]         ; clock      ;
+; N/A   ; None         ; 24.100 ns  ; ID[2]$latch         ; ID[2]         ; clock      ;
+; N/A   ; None         ; 24.000 ns  ; maxoutput[2]$latch  ; maxoutput[2]  ; clock      ;
+; N/A   ; None         ; 23.100 ns  ; camera$latch        ; camera        ; clock      ;
+; N/A   ; None         ; 23.100 ns  ; ID[6]$latch         ; ID[6]         ; clock      ;
+; N/A   ; None         ; 22.900 ns  ; maxoutput[1]$latch  ; maxoutput[1]  ; clock      ;
+; N/A   ; None         ; 22.400 ns  ; maxoutput[0]$latch  ; maxoutput[0]  ; clock      ;
+; N/A   ; None         ; 22.000 ns  ; ID[0]$latch         ; ID[0]         ; clock      ;
+; N/A   ; None         ; 16.700 ns  ; maxoutput[2]$latch  ; maxoutput[2]  ; clear      ;
+; N/A   ; None         ; 16.500 ns  ; camera$latch        ; camera        ; clear      ;
+; N/A   ; None         ; 15.600 ns  ; maxoutput[1]$latch  ; maxoutput[1]  ; clear      ;
+; N/A   ; None         ; 15.100 ns  ; maxoutput[0]$latch  ; maxoutput[0]  ; clear      ;
+; N/A   ; None         ; 12.100 ns  ; state[2]~reg0       ; state[2]      ; clock      ;
+; N/A   ; None         ; 11.600 ns  ; state[1]~reg0       ; state[1]      ; clock      ;
+; N/A   ; None         ; 10.700 ns  ; state[4]~reg0       ; state[4]      ; clock      ;
+; N/A   ; None         ; 9.600 ns   ; state[3]~reg0       ; state[3]      ; clock      ;
+; N/A   ; None         ; 9.400 ns   ; state[0]~reg0       ; state[0]      ; clock      ;
++-------+--------------+------------+---------------------+---------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+---------------------+----------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From ; To                  ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+---------------------+----------+
+; N/A                                     ; None                                                ; 15.000 ns ; d1   ; next_state[0]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 14.800 ns ; ss2  ; next_state[4]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 14.400 ns ; d1   ; next_state[0]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 14.300 ns ; d1   ; next_state[0]$latch ; a3       ;
+; N/A                                     ; None                                                ; 14.200 ns ; ss2  ; next_state[4]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 14.100 ns ; ss2  ; next_state[4]$latch ; a3       ;
+; N/A                                     ; None                                                ; 13.900 ns ; d1   ; next_state[0]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 13.700 ns ; ss2  ; next_state[4]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 13.600 ns ; d1   ; next_state[0]$latch ; c3       ;
+; N/A                                     ; None                                                ; 13.500 ns ; d1   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 13.400 ns ; ss2  ; next_state[4]$latch ; c3       ;
+; N/A                                     ; None                                                ; 13.300 ns ; ss2  ; next_state[4]$latch ; clock    ;
+; N/A                                     ; None                                                ; 13.200 ns ; d1   ; next_state[0]$latch ; a2       ;
+; N/A                                     ; None                                                ; 13.200 ns ; a1   ; next_state[3]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 13.000 ns ; ss2  ; next_state[4]$latch ; a2       ;
+; N/A                                     ; None                                                ; 12.600 ns ; a1   ; next_state[3]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 12.500 ns ; d2   ; next_state[0]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 12.500 ns ; a1   ; next_state[3]$latch ; a3       ;
+; N/A                                     ; None                                                ; 12.200 ns ; c1   ; next_state[4]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 12.100 ns ; d1   ; next_state[0]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 12.100 ns ; a1   ; next_state[3]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 11.900 ns ; d2   ; next_state[0]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 11.900 ns ; ss2  ; next_state[4]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 11.800 ns ; d2   ; next_state[0]$latch ; a3       ;
+; N/A                                     ; None                                                ; 11.800 ns ; a1   ; next_state[3]$latch ; c3       ;
+; N/A                                     ; None                                                ; 11.700 ns ; a1   ; next_state[3]$latch ; clock    ;
+; N/A                                     ; None                                                ; 11.600 ns ; c1   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 11.600 ns ; c1   ; next_state[3]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 11.600 ns ; c1   ; next_state[4]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 11.600 ns ; c2   ; next_state[0]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 11.500 ns ; c1   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 11.500 ns ; c1   ; next_state[4]$latch ; a3       ;
+; N/A                                     ; None                                                ; 11.400 ns ; d2   ; next_state[0]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 11.400 ns ; d1   ; next_state[0]$latch ; b3       ;
+; N/A                                     ; None                                                ; 11.400 ns ; a1   ; next_state[3]$latch ; a2       ;
+; N/A                                     ; None                                                ; 11.200 ns ; ss2  ; next_state[4]$latch ; b3       ;
+; N/A                                     ; None                                                ; 11.100 ns ; d2   ; next_state[0]$latch ; c3       ;
+; N/A                                     ; None                                                ; 11.100 ns ; c1   ; next_state[0]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 11.100 ns ; c1   ; next_state[4]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 11.000 ns ; d2   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 11.000 ns ; c1   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 11.000 ns ; c1   ; next_state[3]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 11.000 ns ; c2   ; next_state[0]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 10.900 ns ; c1   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 10.900 ns ; c1   ; next_state[2]$latch ; a3       ;
+; N/A                                     ; None                                                ; 10.900 ns ; c1   ; next_state[3]$latch ; a3       ;
+; N/A                                     ; None                                                ; 10.900 ns ; c2   ; next_state[0]$latch ; a3       ;
+; N/A                                     ; None                                                ; 10.800 ns ; c1   ; next_state[1]$latch ; a3       ;
+; N/A                                     ; None                                                ; 10.800 ns ; c1   ; next_state[4]$latch ; c3       ;
+; N/A                                     ; None                                                ; 10.700 ns ; d2   ; next_state[0]$latch ; a2       ;
+; N/A                                     ; None                                                ; 10.700 ns ; d1   ; next_state[0]$latch ; d2       ;
+; N/A                                     ; None                                                ; 10.700 ns ; c1   ; next_state[4]$latch ; clock    ;
+; N/A                                     ; None                                                ; 10.500 ns ; c1   ; next_state[0]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 10.500 ns ; c1   ; next_state[2]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 10.500 ns ; c1   ; next_state[3]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 10.500 ns ; c2   ; next_state[0]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 10.500 ns ; ss2  ; next_state[4]$latch ; d2       ;
+; N/A                                     ; None                                                ; 10.400 ns ; a3   ; next_state[3]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 10.400 ns ; c1   ; next_state[0]$latch ; a3       ;
+; N/A                                     ; None                                                ; 10.400 ns ; c1   ; next_state[1]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 10.400 ns ; c1   ; next_state[4]$latch ; a2       ;
+; N/A                                     ; None                                                ; 10.300 ns ; a1   ; next_state[3]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 10.200 ns ; d1   ; next_state[0]$latch ; b2       ;
+; N/A                                     ; None                                                ; 10.200 ns ; c1   ; next_state[2]$latch ; c3       ;
+; N/A                                     ; None                                                ; 10.200 ns ; c1   ; next_state[3]$latch ; c3       ;
+; N/A                                     ; None                                                ; 10.200 ns ; c2   ; next_state[0]$latch ; c3       ;
+; N/A                                     ; None                                                ; 10.200 ns ; a2   ; next_state[3]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 10.100 ns ; d1   ; next_state[0]$latch ; a1       ;
+; N/A                                     ; None                                                ; 10.100 ns ; ss1  ; next_state[3]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 10.100 ns ; c1   ; next_state[1]$latch ; c3       ;
+; N/A                                     ; None                                                ; 10.100 ns ; c1   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 10.100 ns ; c1   ; next_state[3]$latch ; clock    ;
+; N/A                                     ; None                                                ; 10.100 ns ; c2   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 10.000 ns ; ss1  ; next_state[4]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 10.000 ns ; c1   ; next_state[0]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 10.000 ns ; c1   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 10.000 ns ; ss2  ; next_state[4]$latch ; b2       ;
+; N/A                                     ; None                                                ; 9.900 ns  ; ss2  ; next_state[4]$latch ; a1       ;
+; N/A                                     ; None                                                ; 9.900 ns  ; ss3  ; next_state[3]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 9.800 ns  ; a3   ; next_state[3]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 9.800 ns  ; c1   ; next_state[2]$latch ; a2       ;
+; N/A                                     ; None                                                ; 9.800 ns  ; c1   ; next_state[3]$latch ; a2       ;
+; N/A                                     ; None                                                ; 9.800 ns  ; c2   ; next_state[0]$latch ; a2       ;
+; N/A                                     ; None                                                ; 9.700 ns  ; a3   ; next_state[3]$latch ; a3       ;
+; N/A                                     ; None                                                ; 9.700 ns  ; c1   ; next_state[0]$latch ; c3       ;
+; N/A                                     ; None                                                ; 9.700 ns  ; c1   ; next_state[1]$latch ; a2       ;
+; N/A                                     ; None                                                ; 9.600 ns  ; d2   ; next_state[0]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 9.600 ns  ; c1   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 9.600 ns  ; a1   ; next_state[3]$latch ; b3       ;
+; N/A                                     ; None                                                ; 9.600 ns  ; a2   ; next_state[3]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 9.500 ns  ; d1   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 9.500 ns  ; ss1  ; next_state[3]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 9.500 ns  ; a2   ; next_state[3]$latch ; a3       ;
+; N/A                                     ; None                                                ; 9.400 ns  ; ss1  ; next_state[3]$latch ; a3       ;
+; N/A                                     ; None                                                ; 9.400 ns  ; ss1  ; next_state[4]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 9.400 ns  ; a1   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 9.300 ns  ; a3   ; next_state[3]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 9.300 ns  ; ss1  ; next_state[4]$latch ; a3       ;
+; N/A                                     ; None                                                ; 9.300 ns  ; c1   ; next_state[0]$latch ; a2       ;
+; N/A                                     ; None                                                ; 9.300 ns  ; c1   ; next_state[4]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 9.300 ns  ; d3   ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 9.300 ns  ; a1   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 9.300 ns  ; ss3  ; next_state[3]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 9.200 ns  ; ss3  ; next_state[3]$latch ; a3       ;
+; N/A                                     ; None                                                ; 9.100 ns  ; a1   ; next_state[0]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 9.100 ns  ; a2   ; next_state[3]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 9.000 ns  ; d1   ; next_state[0]$latch ; b1       ;
+; N/A                                     ; None                                                ; 9.000 ns  ; a3   ; next_state[3]$latch ; c3       ;
+; N/A                                     ; None                                                ; 9.000 ns  ; ss1  ; next_state[3]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 8.900 ns  ; d2   ; next_state[0]$latch ; b3       ;
+; N/A                                     ; None                                                ; 8.900 ns  ; d1   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 8.900 ns  ; a3   ; next_state[3]$latch ; clock    ;
+; N/A                                     ; None                                                ; 8.900 ns  ; ss1  ; next_state[4]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 8.900 ns  ; a1   ; next_state[3]$latch ; d2       ;
+; N/A                                     ; None                                                ; 8.800 ns  ; d1   ; next_state[1]$latch ; a3       ;
+; N/A                                     ; None                                                ; 8.800 ns  ; a1   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 8.800 ns  ; a2   ; next_state[3]$latch ; c3       ;
+; N/A                                     ; None                                                ; 8.800 ns  ; ss2  ; next_state[4]$latch ; b1       ;
+; N/A                                     ; None                                                ; 8.800 ns  ; ss3  ; next_state[3]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 8.700 ns  ; d1   ; next_state[0]$latch ; d1       ;
+; N/A                                     ; None                                                ; 8.700 ns  ; d1   ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 8.700 ns  ; ss1  ; next_state[3]$latch ; c3       ;
+; N/A                                     ; None                                                ; 8.700 ns  ; c1   ; next_state[2]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 8.700 ns  ; c1   ; next_state[3]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 8.700 ns  ; c2   ; next_state[0]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 8.700 ns  ; d3   ; next_state[1]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 8.700 ns  ; a1   ; next_state[1]$latch ; a3       ;
+; N/A                                     ; None                                                ; 8.700 ns  ; a1   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 8.700 ns  ; a2   ; next_state[3]$latch ; clock    ;
+; N/A                                     ; None                                                ; 8.600 ns  ; a3   ; next_state[3]$latch ; a2       ;
+; N/A                                     ; None                                                ; 8.600 ns  ; ss1  ; next_state[3]$latch ; clock    ;
+; N/A                                     ; None                                                ; 8.600 ns  ; ss1  ; next_state[4]$latch ; c3       ;
+; N/A                                     ; None                                                ; 8.600 ns  ; c1   ; next_state[1]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 8.600 ns  ; c1   ; next_state[4]$latch ; b3       ;
+; N/A                                     ; None                                                ; 8.600 ns  ; d3   ; next_state[1]$latch ; a3       ;
+; N/A                                     ; None                                                ; 8.600 ns  ; a1   ; next_state[2]$latch ; a3       ;
+; N/A                                     ; None                                                ; 8.600 ns  ; c3   ; next_state[4]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 8.500 ns  ; d1   ; next_state[0]$latch ; c1       ;
+; N/A                                     ; None                                                ; 8.500 ns  ; ss1  ; next_state[4]$latch ; clock    ;
+; N/A                                     ; None                                                ; 8.500 ns  ; d3   ; next_state[0]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 8.500 ns  ; a1   ; next_state[0]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 8.500 ns  ; ss2  ; next_state[4]$latch ; d1       ;
+; N/A                                     ; None                                                ; 8.500 ns  ; ss3  ; next_state[3]$latch ; c3       ;
+; N/A                                     ; None                                                ; 8.400 ns  ; d1   ; next_state[0]$latch ; c2       ;
+; N/A                                     ; None                                                ; 8.400 ns  ; d1   ; next_state[1]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 8.400 ns  ; a1   ; next_state[0]$latch ; a3       ;
+; N/A                                     ; None                                                ; 8.400 ns  ; a1   ; next_state[3]$latch ; b2       ;
+; N/A                                     ; None                                                ; 8.400 ns  ; a2   ; next_state[3]$latch ; a2       ;
+; N/A                                     ; None                                                ; 8.400 ns  ; ss3  ; next_state[3]$latch ; clock    ;
+; N/A                                     ; None                                                ; 8.300 ns  ; d1   ; next_state[0]$latch ; d3       ;
+; N/A                                     ; None                                                ; 8.300 ns  ; ss1  ; next_state[3]$latch ; a2       ;
+; N/A                                     ; None                                                ; 8.300 ns  ; b3   ; next_state[0]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 8.300 ns  ; a1   ; next_state[1]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 8.300 ns  ; a1   ; next_state[3]$latch ; a1       ;
+; N/A                                     ; None                                                ; 8.300 ns  ; ss2  ; next_state[4]$latch ; c1       ;
+; N/A                                     ; None                                                ; 8.200 ns  ; d2   ; next_state[0]$latch ; d2       ;
+; N/A                                     ; None                                                ; 8.200 ns  ; b1   ; next_state[0]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 8.200 ns  ; ss1  ; next_state[4]$latch ; a2       ;
+; N/A                                     ; None                                                ; 8.200 ns  ; c1   ; next_state[0]$latch ; ss4      ;
+; N/A                                     ; None                                                ; 8.200 ns  ; d3   ; next_state[1]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 8.200 ns  ; a1   ; next_state[2]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 8.200 ns  ; ss4  ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 8.200 ns  ; ss2  ; next_state[4]$latch ; c2       ;
+; N/A                                     ; None                                                ; 8.100 ns  ; d1   ; next_state[1]$latch ; c3       ;
+; N/A                                     ; None                                                ; 8.100 ns  ; d1   ; next_state[2]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 8.100 ns  ; ss2  ; next_state[4]$latch ; d3       ;
+; N/A                                     ; None                                                ; 8.100 ns  ; ss3  ; next_state[3]$latch ; a2       ;
+; N/A                                     ; None                                                ; 8.000 ns  ; d1   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 8.000 ns  ; d1   ; next_state[2]$latch ; a3       ;
+; N/A                                     ; None                                                ; 8.000 ns  ; c1   ; next_state[2]$latch ; b3       ;
+; N/A                                     ; None                                                ; 8.000 ns  ; c1   ; next_state[3]$latch ; b3       ;
+; N/A                                     ; None                                                ; 8.000 ns  ; c2   ; next_state[0]$latch ; b3       ;
+; N/A                                     ; None                                                ; 8.000 ns  ; a1   ; next_state[0]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 8.000 ns  ; a1   ; next_state[1]$latch ; c3       ;
+; N/A                                     ; None                                                ; 8.000 ns  ; c3   ; next_state[4]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 7.900 ns  ; c1   ; next_state[1]$latch ; b3       ;
+; N/A                                     ; None                                                ; 7.900 ns  ; c1   ; next_state[4]$latch ; d2       ;
+; N/A                                     ; None                                                ; 7.900 ns  ; d3   ; next_state[0]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 7.900 ns  ; d3   ; next_state[1]$latch ; c3       ;
+; N/A                                     ; None                                                ; 7.900 ns  ; a1   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 7.900 ns  ; a1   ; next_state[2]$latch ; c3       ;
+; N/A                                     ; None                                                ; 7.900 ns  ; c3   ; next_state[4]$latch ; a3       ;
+; N/A                                     ; None                                                ; 7.900 ns  ; ss2  ; next_state[2]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 7.800 ns  ; d3   ; next_state[0]$latch ; a3       ;
+; N/A                                     ; None                                                ; 7.800 ns  ; d3   ; next_state[1]$latch ; clock    ;
+; N/A                                     ; None                                                ; 7.800 ns  ; a1   ; next_state[2]$latch ; clock    ;
+; N/A                                     ; None                                                ; 7.700 ns  ; d2   ; next_state[0]$latch ; b2       ;
+; N/A                                     ; None                                                ; 7.700 ns  ; d1   ; next_state[1]$latch ; a2       ;
+; N/A                                     ; None                                                ; 7.700 ns  ; ss1  ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 7.700 ns  ; b3   ; next_state[0]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 7.700 ns  ; a1   ; next_state[0]$latch ; c3       ;
+; N/A                                     ; None                                                ; 7.700 ns  ; ss4  ; next_state[1]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 7.600 ns  ; d2   ; next_state[0]$latch ; a1       ;
+; N/A                                     ; None                                                ; 7.600 ns  ; d1   ; next_state[2]$latch ; ss1      ;
+; N/A                                     ; None                                                ; 7.600 ns  ; b1   ; next_state[0]$latch ; ss3      ;
+; N/A                                     ; None                                                ; 7.600 ns  ; b2   ; next_state[0]$latch ; ss2      ;
+; N/A                                     ; None                                                ; 7.600 ns  ; b3   ; next_state[0]$latch ; a3       ;
+; N/A                                     ; None                                                ; 7.600 ns  ; a1   ; next_state[0]$latch ; clock    ;
+; N/A                                     ; None                                                ; 7.600 ns  ; a1   ; next_state[1]$latch ; a2       ;
+; N/A                                     ; None                                                ; 7.600 ns  ; ss4  ; next_state[2]$latch ; ss3      ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;      ;                     ;          ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+---------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.0 Build 132 02/25/2009 SJ Full Version
+    Info: Processing started: Tue Nov 10 18:46:35 2020
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off TLC_v3 -c TLC_v3
+Info: Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Started post-fitting delay annotation
+Info: Delay annotation completed successfully
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "next_state[0]$latch" is a latch
+    Warning: Node "next_state[1]$latch" is a latch
+    Warning: Node "next_state[2]$latch" is a latch
+    Warning: Node "next_state[3]$latch" is a latch
+    Warning: Node "next_state[4]$latch" is a latch
+    Warning: Node "ID[0]$latch" is a latch
+    Warning: Node "ID[1]$latch" is a latch
+    Warning: Node "ID[2]$latch" is a latch
+    Warning: Node "ID[3]$latch" is a latch
+    Warning: Node "ID[4]$latch" is a latch
+    Warning: Node "ID[5]$latch" is a latch
+    Warning: Node "ID[6]$latch" is a latch
+    Warning: Node "ID[7]$latch" is a latch
+    Warning: Node "ID[8]$latch" is a latch
+    Warning: Node "ID[9]$latch" is a latch
+    Warning: Node "ID[10]$latch" is a latch
+    Warning: Node "ID[11]$latch" is a latch
+    Warning: Node "camera$latch" is a latch
+    Warning: Node "maxoutput[0]$latch" is a latch
+    Warning: Node "maxoutput[1]$latch" is a latch
+    Warning: Node "maxoutput[2]$latch" is a latch
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clock" is an undefined clock
+    Info: Assuming node "ss3" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "ss2" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "ss4" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "a2" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "c3" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "a1" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "d3" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "b3" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "c2" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "c1" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "ss1" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "a3" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "b2" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "b1" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "d1" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "d2" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+    Info: Assuming node "clear" is a latch enable and/or memory write/read enable. Will not compute fmax for this pin.
+Warning: Found 41 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "Mux1~37" as buffer
+    Info: Detected gated clock "Mux4~14" as buffer
+    Info: Detected gated clock "Mux1~71" as buffer
+    Info: Detected gated clock "Mux1~35" as buffer
+    Info: Detected gated clock "Mux1~34" as buffer
+    Info: Detected gated clock "always2~112" as buffer
+    Info: Detected gated clock "Mux1~33" as buffer
+    Info: Detected gated clock "Mux1~31" as buffer
+    Info: Detected gated clock "Mux1~64" as buffer
+    Info: Detected gated clock "Mux1~29" as buffer
+    Info: Detected gated clock "Mux1~28" as buffer
+    Info: Detected gated clock "Mux1~27" as buffer
+    Info: Detected gated clock "Mux1~25" as buffer
+    Info: Detected gated clock "always2~111" as buffer
+    Info: Detected gated clock "Mux1~57" as buffer
+    Info: Detected gated clock "Mux1~23" as buffer
+    Info: Detected gated clock "Mux1~11" as buffer
+    Info: Detected gated clock "Mux1~10" as buffer
+    Info: Detected gated clock "Mux1~9" as buffer
+    Info: Detected gated clock "Mux1~8" as buffer
+    Info: Detected gated clock "Mux1~41" as buffer
+    Info: Detected gated clock "Mux1~40" as buffer
+    Info: Detected gated clock "maxoutput[2]~0" as buffer
+    Info: Detected gated clock "next_state[2]~71" as buffer
+    Info: Detected gated clock "Mux1~48" as buffer
+    Info: Detected gated clock "Mux1~12" as buffer
+    Info: Detected gated clock "Mux1~42" as buffer
+    Info: Detected gated clock "Mux1~39" as buffer
+    Info: Detected gated clock "next_state[5]~32" as buffer
+    Info: Detected gated clock "camera~8" as buffer
+    Info: Detected gated clock "Mux2~1" as buffer
+    Info: Detected gated clock "Decoder0~5" as buffer
+    Info: Detected gated clock "WideOr12~0" as buffer
+    Info: Detected gated clock "WideOr15~0" as buffer
+    Info: Detected gated clock "WideOr0~1" as buffer
+    Info: Detected gated clock "WideOr0~0" as buffer
+    Info: Detected ripple clock "state[4]~reg0" as buffer
+    Info: Detected ripple clock "state[3]~reg0" as buffer
+    Info: Detected ripple clock "state[2]~reg0" as buffer
+    Info: Detected ripple clock "state[1]~reg0" as buffer
+    Info: Detected ripple clock "state[0]~reg0" as buffer
+Info: Clock "clock" has Internal fmax of 40.32 MHz between source register "next_state[3]$latch" and destination register "state[3]~reg0" (period= 24.8 ns)
+    Info: + Longest register to register delay is 1.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC4_A17; Fanout = 2; REG Node = 'next_state[3]$latch'
+        Info: 2: + IC(0.600 ns) + CELL(0.900 ns) = 1.500 ns; Loc. = LC8_A17; Fanout = 41; REG Node = 'state[3]~reg0'
+        Info: Total cell delay = 0.900 ns ( 60.00 % )
+        Info: Total interconnect delay = 0.600 ns ( 40.00 % )
+    Info: - Smallest clock skew is -22.000 ns
+        Info: + Shortest clock path from clock "clock" to destination register is 3.900 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.900 ns) = 1.900 ns; Loc. = PIN_55; Fanout = 5; CLK Node = 'clock'
+            Info: 2: + IC(2.000 ns) + CELL(0.000 ns) = 3.900 ns; Loc. = LC8_A17; Fanout = 41; REG Node = 'state[3]~reg0'
+            Info: Total cell delay = 1.900 ns ( 48.72 % )
+            Info: Total interconnect delay = 2.000 ns ( 51.28 % )
+        Info: - Longest clock path from clock "clock" to source register is 25.900 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.900 ns) = 1.900 ns; Loc. = PIN_55; Fanout = 5; CLK Node = 'clock'
+            Info: 2: + IC(2.000 ns) + CELL(0.900 ns) = 4.800 ns; Loc. = LC2_C17; Fanout = 51; REG Node = 'state[1]~reg0'
+            Info: 3: + IC(2.600 ns) + CELL(1.900 ns) = 9.300 ns; Loc. = LC8_B14; Fanout = 4; COMB Node = 'WideOr12~0'
+            Info: 4: + IC(3.400 ns) + CELL(1.400 ns) = 14.100 ns; Loc. = LC1_C5; Fanout = 1; COMB Node = 'Mux1~64'
+            Info: 5: + IC(0.000 ns) + CELL(1.300 ns) = 15.400 ns; Loc. = LC2_C5; Fanout = 1; COMB Node = 'Mux1~41'
+            Info: 6: + IC(2.600 ns) + CELL(1.400 ns) = 19.400 ns; Loc. = LC4_C24; Fanout = 1; COMB Node = 'Mux1~48'
+            Info: 7: + IC(0.000 ns) + CELL(1.300 ns) = 20.700 ns; Loc. = LC5_C24; Fanout = 5; COMB Node = 'Mux1~39'
+            Info: 8: + IC(3.300 ns) + CELL(1.900 ns) = 25.900 ns; Loc. = LC4_A17; Fanout = 2; REG Node = 'next_state[3]$latch'
+            Info: Total cell delay = 12.000 ns ( 46.33 % )
+            Info: Total interconnect delay = 13.900 ns ( 53.67 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Micro setup delay of destination is 1.300 ns
+Warning: Circuit may not operate. Detected 88 non-operational path(s) clocked by clock "clock" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "state[4]~reg0" and destination pin or register "next_state[4]$latch" for clock "clock" (Hold time is 16.1 ns)
+    Info: + Largest clock skew is 22.000 ns
+        Info: + Longest clock path from clock "clock" to destination register is 25.900 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.900 ns) = 1.900 ns; Loc. = PIN_55; Fanout = 5; CLK Node = 'clock'
+            Info: 2: + IC(2.000 ns) + CELL(0.900 ns) = 4.800 ns; Loc. = LC2_C17; Fanout = 51; REG Node = 'state[1]~reg0'
+            Info: 3: + IC(2.600 ns) + CELL(1.900 ns) = 9.300 ns; Loc. = LC8_B14; Fanout = 4; COMB Node = 'WideOr12~0'
+            Info: 4: + IC(3.400 ns) + CELL(1.400 ns) = 14.100 ns; Loc. = LC1_C5; Fanout = 1; COMB Node = 'Mux1~64'
+            Info: 5: + IC(0.000 ns) + CELL(1.300 ns) = 15.400 ns; Loc. = LC2_C5; Fanout = 1; COMB Node = 'Mux1~41'
+            Info: 6: + IC(2.600 ns) + CELL(1.400 ns) = 19.400 ns; Loc. = LC4_C24; Fanout = 1; COMB Node = 'Mux1~48'
+            Info: 7: + IC(0.000 ns) + CELL(1.300 ns) = 20.700 ns; Loc. = LC5_C24; Fanout = 5; COMB Node = 'Mux1~39'
+            Info: 8: + IC(3.300 ns) + CELL(1.900 ns) = 25.900 ns; Loc. = LC3_A17; Fanout = 2; REG Node = 'next_state[4]$latch'
+            Info: Total cell delay = 12.000 ns ( 46.33 % )
+            Info: Total interconnect delay = 13.900 ns ( 53.67 % )
+        Info: - Shortest clock path from clock "clock" to source register is 3.900 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.900 ns) = 1.900 ns; Loc. = PIN_55; Fanout = 5; CLK Node = 'clock'
+            Info: 2: + IC(2.000 ns) + CELL(0.000 ns) = 3.900 ns; Loc. = LC1_A17; Fanout = 30; REG Node = 'state[4]~reg0'
+            Info: Total cell delay = 1.900 ns ( 48.72 % )
+            Info: Total interconnect delay = 2.000 ns ( 51.28 % )
+    Info: - Micro clock to output delay of source is 0.900 ns
+    Info: - Shortest register to register delay is 5.000 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC1_A17; Fanout = 30; REG Node = 'state[4]~reg0'
+        Info: 2: + IC(0.600 ns) + CELL(1.900 ns) = 2.500 ns; Loc. = LC7_A17; Fanout = 1; COMB Node = 'Mux2~15'
+        Info: 3: + IC(0.600 ns) + CELL(1.900 ns) = 5.000 ns; Loc. = LC3_A17; Fanout = 2; REG Node = 'next_state[4]$latch'
+        Info: Total cell delay = 3.800 ns ( 76.00 % )
+        Info: Total interconnect delay = 1.200 ns ( 24.00 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+Info: tsu for register "next_state[2]$latch" (data pin = "a3", clock pin = "clock") is 29.100 ns
+    Info: + Longest pin to register delay is 39.200 ns
+        Info: 1: + IC(0.000 ns) + CELL(3.100 ns) = 3.100 ns; Loc. = PIN_144; Fanout = 15; CLK Node = 'a3'
+        Info: 2: + IC(3.800 ns) + CELL(1.900 ns) = 8.800 ns; Loc. = LC4_C19; Fanout = 1; COMB Node = 'LessThan2~1'
+        Info: 3: + IC(0.600 ns) + CELL(1.900 ns) = 11.300 ns; Loc. = LC8_C19; Fanout = 2; COMB Node = 'LessThan2~2'
+        Info: 4: + IC(2.600 ns) + CELL(1.900 ns) = 15.800 ns; Loc. = LC7_C1; Fanout = 2; COMB Node = 'max~16'
+        Info: 5: + IC(0.600 ns) + CELL(1.900 ns) = 18.300 ns; Loc. = LC5_C1; Fanout = 3; COMB Node = 'max~22'
+        Info: 6: + IC(0.600 ns) + CELL(1.400 ns) = 20.300 ns; Loc. = LC3_C1; Fanout = 1; COMB Node = 'next_state~72'
+        Info: 7: + IC(2.600 ns) + CELL(1.900 ns) = 24.800 ns; Loc. = LC7_C16; Fanout = 1; COMB Node = 'Mux4~7'
+        Info: 8: + IC(0.600 ns) + CELL(1.900 ns) = 27.300 ns; Loc. = LC8_C16; Fanout = 1; COMB Node = 'Mux4~8'
+        Info: 9: + IC(1.800 ns) + CELL(1.400 ns) = 30.500 ns; Loc. = LC6_C13; Fanout = 1; COMB Node = 'Mux4~9'
+        Info: 10: + IC(0.600 ns) + CELL(1.900 ns) = 33.000 ns; Loc. = LC7_C13; Fanout = 1; COMB Node = 'Mux4~12'
+        Info: 11: + IC(0.600 ns) + CELL(1.900 ns) = 35.500 ns; Loc. = LC1_C13; Fanout = 1; COMB Node = 'Mux4~13'
+        Info: 12: + IC(1.800 ns) + CELL(1.900 ns) = 39.200 ns; Loc. = LC4_C14; Fanout = 2; REG Node = 'next_state[2]$latch'
+        Info: Total cell delay = 23.000 ns ( 58.67 % )
+        Info: Total interconnect delay = 16.200 ns ( 41.33 % )
+    Info: + Micro setup delay of destination is 4.400 ns
+    Info: - Shortest clock path from clock "clock" to destination register is 14.500 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.900 ns) = 1.900 ns; Loc. = PIN_55; Fanout = 5; CLK Node = 'clock'
+        Info: 2: + IC(2.000 ns) + CELL(0.900 ns) = 4.800 ns; Loc. = LC1_A17; Fanout = 30; REG Node = 'state[4]~reg0'
+        Info: 3: + IC(3.600 ns) + CELL(1.400 ns) = 9.800 ns; Loc. = LC5_C24; Fanout = 5; COMB Node = 'Mux1~39'
+        Info: 4: + IC(2.800 ns) + CELL(1.900 ns) = 14.500 ns; Loc. = LC4_C14; Fanout = 2; REG Node = 'next_state[2]$latch'
+        Info: Total cell delay = 6.100 ns ( 42.07 % )
+        Info: Total interconnect delay = 8.400 ns ( 57.93 % )
+Info: tco from clock "ss2" to destination pin "next_state[4]" through register "next_state[4]$latch" is 32.500 ns
+    Info: + Longest clock path from clock "ss2" to source register is 27.400 ns
+        Info: 1: + IC(0.000 ns) + CELL(3.100 ns) = 3.100 ns; Loc. = PIN_137; Fanout = 12; CLK Node = 'ss2'
+        Info: 2: + IC(3.700 ns) + CELL(1.900 ns) = 8.700 ns; Loc. = LC3_C24; Fanout = 2; COMB Node = 'always2~112'
+        Info: 3: + IC(2.500 ns) + CELL(1.400 ns) = 12.600 ns; Loc. = LC8_C15; Fanout = 1; COMB Node = 'Mux1~34'
+        Info: 4: + IC(0.600 ns) + CELL(1.900 ns) = 15.100 ns; Loc. = LC3_C15; Fanout = 1; COMB Node = 'Mux1~35'
+        Info: 5: + IC(1.900 ns) + CELL(1.400 ns) = 18.400 ns; Loc. = LC1_C24; Fanout = 1; COMB Node = 'Mux1~71'
+        Info: 6: + IC(0.000 ns) + CELL(1.300 ns) = 19.700 ns; Loc. = LC2_C24; Fanout = 1; COMB Node = 'Mux1~42'
+        Info: 7: + IC(0.600 ns) + CELL(1.900 ns) = 22.200 ns; Loc. = LC5_C24; Fanout = 5; COMB Node = 'Mux1~39'
+        Info: 8: + IC(3.300 ns) + CELL(1.900 ns) = 27.400 ns; Loc. = LC3_A17; Fanout = 2; REG Node = 'next_state[4]$latch'
+        Info: Total cell delay = 14.800 ns ( 54.01 % )
+        Info: Total interconnect delay = 12.600 ns ( 45.99 % )
+    Info: + Micro clock to output delay of source is 0.000 ns
+    Info: + Longest register to pin delay is 5.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LC3_A17; Fanout = 2; REG Node = 'next_state[4]$latch'
+        Info: 2: + IC(1.200 ns) + CELL(3.900 ns) = 5.100 ns; Loc. = PIN_9; Fanout = 0; PIN Node = 'next_state[4]'
+        Info: Total cell delay = 3.900 ns ( 76.47 % )
+        Info: Total interconnect delay = 1.200 ns ( 23.53 % )
+Info: th for register "next_state[0]$latch" (data pin = "d1", clock pin = "ss2") is 15.000 ns
+    Info: + Longest clock path from clock "ss2" to destination register is 27.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(3.100 ns) = 3.100 ns; Loc. = PIN_137; Fanout = 12; CLK Node = 'ss2'
+        Info: 2: + IC(3.700 ns) + CELL(1.900 ns) = 8.700 ns; Loc. = LC3_C24; Fanout = 2; COMB Node = 'always2~112'
+        Info: 3: + IC(2.500 ns) + CELL(1.400 ns) = 12.600 ns; Loc. = LC8_C15; Fanout = 1; COMB Node = 'Mux1~34'
+        Info: 4: + IC(0.600 ns) + CELL(1.900 ns) = 15.100 ns; Loc. = LC3_C15; Fanout = 1; COMB Node = 'Mux1~35'
+        Info: 5: + IC(1.900 ns) + CELL(1.400 ns) = 18.400 ns; Loc. = LC1_C24; Fanout = 1; COMB Node = 'Mux1~71'
+        Info: 6: + IC(0.000 ns) + CELL(1.300 ns) = 19.700 ns; Loc. = LC2_C24; Fanout = 1; COMB Node = 'Mux1~42'
+        Info: 7: + IC(0.600 ns) + CELL(1.900 ns) = 22.200 ns; Loc. = LC5_C24; Fanout = 5; COMB Node = 'Mux1~39'
+        Info: 8: + IC(3.000 ns) + CELL(1.900 ns) = 27.100 ns; Loc. = LC2_C12; Fanout = 2; REG Node = 'next_state[0]$latch'
+        Info: Total cell delay = 14.800 ns ( 54.61 % )
+        Info: Total interconnect delay = 12.300 ns ( 45.39 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: - Shortest pin to register delay is 12.100 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.900 ns) = 1.900 ns; Loc. = PIN_56; Fanout = 16; CLK Node = 'd1'
+        Info: 2: + IC(2.500 ns) + CELL(1.400 ns) = 5.800 ns; Loc. = LC1_C15; Fanout = 1; COMB Node = 'Mux8~17'
+        Info: 3: + IC(2.400 ns) + CELL(1.400 ns) = 9.600 ns; Loc. = LC8_C12; Fanout = 1; COMB Node = 'Mux8~18'
+        Info: 4: + IC(0.600 ns) + CELL(1.900 ns) = 12.100 ns; Loc. = LC2_C12; Fanout = 2; REG Node = 'next_state[0]$latch'
+        Info: Total cell delay = 6.600 ns ( 54.55 % )
+        Info: Total interconnect delay = 5.500 ns ( 45.45 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 195 megabytes
+    Info: Processing ended: Tue Nov 10 18:46:36 2020
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+
